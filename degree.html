@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Celsius to Fahrenheit Converter</title>
+</head>
+<body>
+    <h2>Celsius to Fahrenheit Converter</h2>
+    <label for="celsius">Enter Celsius: </label>
+    <input type="number" id="celsius" placeholder="Enter Celsius">
+    <button onclick="convertToFahrenheit()">Convert</button>
+    <p id="result"></p>
+
+    <script>
+        function convertToFahrenheit() {
+            let celsius = document.getElementById("celsius").value;
+            let fahrenheit = (celsius * 9 / 5) + 32;
+            document.getElementById("result").innerText = `${celsius}° Celsius is equal to ${fahrenheit}° Fahrenheit.`;
+        }
+    </script>
+</body>
+</html>
