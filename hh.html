@@ -1,0 +1,104 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+    <head>
+        <title>Comment</title>    
+        <style>
+            body{
+                background-color: blueviolet;
+            }
+            input{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+               
+                color: rgb(52, 6, 95);
+            }
+            form{
+                background-color: blanchedalmond;
+                width: 600px;
+                padding: 30px;
+                margin: 50px auto; 
+                border: 4px solid black;
+            }
+            label{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: large;
+                color: rgb(61, 35, 3);
+            }
+            input[type="submit"]{
+                color: black;
+                font-family: 'Times New Roman', Times, serif;
+                background-color:blue;
+            }
+            button{
+                border: 2px solid brown;
+            }
+            button:hover{
+                background-color: blueviolet;
+            }
+            div{
+                background-color: brown;
+            }
+            h2{
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2 id="hd">FORM</h2>
+            <img id="image" src="https://images.unsplash.com/photo-1597198399495-ff26429c4ad9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" width=20% alt="Default Image">
+        <form method="post" onsubmit="return validate()">
+            <label>Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter the name:" required><br>
+            <label>Roll No:</label>
+            <input type="number" id="num" name="roll" placeholder="Enter the roll no" min="1" required><br>
+            <label>Boook Seat</label>
+            <input type="number" id="s" placeholder="enter a seat number"></br>
+            <button type="button" id="book" onclick="bookseat()">Book</button>
+            <input type="submit" value="Send">
+            <button type="reset">Clear</button>
+
+        </form>
+        </div>
+        <script>
+            function validate(){
+                let isValid=true;
+                let namej=document.getElementById("name").value;
+                let rollj=document.getElementById("num").value;
+                
+                if(!namej.match(/^[A-Za-z ]+$/)){
+                    alert("The name must be albabet");
+                    isValid = false; 
+                }
+                if(isValid==false){
+                    return false;
+                }
+                return isValid;
+            }
+            let img=document.getElementById("image");
+            let area=document.getElementById("hd");
+            img.addEventListener("mouseover",function(){
+                img.src= "https://images.unsplash.com/photo-1575252663512-b25714ec27f9?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+            });
+            img.addEventListener("mouseout",function(){
+                img.src="https://images.unsplash.com/photo-1597198399495-ff26429c4ad9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+            });
+            area.addEventListener("mouseover",function(){
+                area.style.backgroundColor="blue";
+            })
+            const seat=new Set();
+            function bookseat(){
+               const snum=parseInt(document.getElementById("s").value);
+                if(!snum||snum>10||snum<1){
+                    alert("Enter a seat number 1-10");
+                    return;
+                }
+                if(seat.has(snum)){
+                    alert("another number");
+                }else{
+                    seat.add(snum);
+                    alert("added succefully");
+                }
+            } 
+        </script>
+    </body>
+</html>
